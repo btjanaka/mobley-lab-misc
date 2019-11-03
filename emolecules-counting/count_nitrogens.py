@@ -5,7 +5,7 @@
 #    - a list of directories, each directory containing mol2 files
 #      corresponding to the molecules
 # Output:
-#    - a CSV in the format {filepath,SMILES,num} listing the number of trivalent
+#    - a CSV in the format {filepath,num} listing the number of trivalent
 #      nitrogens in each molecule
 #    - a markdown file describing the number of molecules with 0 trivalent
 #      nitrogens, 1 trivalent nitrogen, 2, trivalent nitrogens,...
@@ -116,7 +116,7 @@ def count_in_directories(dirs: [str], complete_csv: "file object") -> {
             n = num_nitrogens_in_molecule(mol)
             counts[n] += 1
 
-            complete_csv.write(f"{mol2file},{oechem.OEMolToSmiles(mol)},{n}\n")
+            complete_csv.write(f"{mol2file},{n}\n")
     return counts
 
 
@@ -158,10 +158,12 @@ def main():
     configure_logging(args["log"])
 
     complete_csv = open(args["complete"], "w")
-    complete_csv.write("filepath,SMILES,count\n")
+    complete_csv.write("filepath,count\n")
 
     counts = count_in_directories(args["dirs"], complete_csv)
     save_results(counts, args["summary"])
+
+    complete_csv.close()
 
 
 if __name__ == "__main__":
