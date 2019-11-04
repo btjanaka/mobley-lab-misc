@@ -37,10 +37,10 @@ pwd
 
 date
 
-EMOL="/data15/mobley_temp/kyud/Forcefield_Project/eMolecule/minimized_files/"
+EMOL="/data15/mobley_temp/kyud/Forcefield_Project/eMolecule/minimized_files"
 ./count_nitrogens.py \
   --dirs ${EMOL}/eMolecules_1/SMIRNOFF,${EMOL}/eMolecules_2/SMIRNOFF,${EMOL}/eMolecules_3/SMIRNOFF,${EMOL}/eMolecules_4/SMIRNOFF,${EMOL}/eMolecules_5/SMIRNOFF,${EMOL}/eMolecules_6/SMIRNOFF,${EMOL}/eMolecules_7/SMIRNOFF,${EMOL}/eMolecules_8/SMIRNOFF,${EMOL}/eMolecules_9/SMIRNOFF \
-  --complete ./complete.csv
+  --complete ./complete.csv \
   --summary ./results.md
 
 date
