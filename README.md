@@ -7,3 +7,4 @@ Miscellaneous small projects done as part of the [Mobley Lab](https://mobleylab.
 - `emolecules-counting` - For counting the number of molecules, with and
   without trivalent nitrogens, in the eMolecules database
 - `qcfractal-exp` - Proofs of concept for usage of QCFractal
+- `qmmin.py` - A tool for postprocessing QM calculation results
